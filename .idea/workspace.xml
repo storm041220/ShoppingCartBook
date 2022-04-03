@@ -2,23 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c21806e-6a59-427c-80de-518ca8cdc5d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/db.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routers/home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routers/register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/home.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layouts/main.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/register.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/authorities.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/customers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/register.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/register.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/register.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +46,7 @@
       <option name="presentableId" value="Default" />
       <updated>1648616128234</updated>
       <workItem from="1648616129550" duration="406000" />
-      <workItem from="1648970097833" duration="7500000" />
+      <workItem from="1648970097833" duration="12078000" />
     </task>
     <servers />
   </component>

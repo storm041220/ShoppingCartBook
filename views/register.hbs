@@ -5,10 +5,10 @@
             <i class="bi bi-person"></i> Create Account
         </div>
     </div>
-    <form class="form" id="formRegister" action="/auth/register" method="POST">
+    <form class="form" id="formRegister" action="register" method="post">
         <div class="mb-3">
             <label for="firstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="First name" name="first_name">
+            <input type="text" class="form-control" id="firstName" placeholder="First name" name="first_name" value="Lam">
             <span id="err-first-name"></span>
         </div>
         <div class="mb-3">
@@ -24,6 +24,7 @@
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" placeholder="email" name="email">
+            <span>{{message}}</span>
             <span id="err-email"></span>
         </div>
         <div class="mb-3">
