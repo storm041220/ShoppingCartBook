@@ -1,0 +1,16 @@
+.form{
+    width: 50%;
+    margin: 0 auto;
+}
+.container{
+    margin-top: 100px;
+}
+.btn-submit{
+    width: 100%;
+}
+.submit{
+    margin-top: 20px;
+}
+span{
+    color: red;
+}
