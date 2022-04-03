@@ -1,0 +1,26 @@
+
+<div class="container">
+    <div class="text-center">
+        <div class="h2 text-black">
+            <i class="bi bi-person"></i> Login Account
+        </div>
+    </div>
+    <form class="form" id="formLogin" action="login" method="post">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="email" name="email">
+            <span>{{message_email}}</span>
+            <span id="err-email"></span>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="" name="password">
+            <span>{{message_password}}</span>
+            <span id="err-password"></span>
+        </div>
+        <div class="text-center submit">
+            <div class="btn btn-dark btn-submit" type="button"  onclick="submitLogin()">Login</div>
+            <a class="btn btn-outline-dark btn-submit" href="/auth/register">Create Account</a>
+        </div>
+    </form>
+</div>

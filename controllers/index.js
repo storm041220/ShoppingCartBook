@@ -1,6 +1,8 @@
 const home = require('./home');
-const register = require('./register');
+const auth = require('./auth');
+const admin = require('./admin')
 module.exports = {
     ...home,
-    ...register
+    ...auth,
+    ...admin
 }

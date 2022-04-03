@@ -14,8 +14,12 @@ app.use(express.static(__dirname + '/public'));
 //router
 const homeRouter = require('./routers/home');
 const registerRouter = require('./routers/register');
+const loginRouter = require('./routers/login');
+const adminRouter = require('./routers/admin');
 
 app.get('/health', (req, res) => res.send('Book Shop'));
 app.use('/', homeRouter);
 app.use('/auth/register',registerRouter);
+app.use('/auth/login',loginRouter);
+app.use('/admin',adminRouter);
 module.exports = app;
