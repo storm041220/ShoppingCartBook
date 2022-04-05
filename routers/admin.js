@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {getAdminPage} = require('../controllers');
+const {getAdminPage,checkRoleAdmin} = require('../controllers');
 
-router.get('/',getAdminPage);
+router.get('/',checkRoleAdmin,getAdminPage);
 
 module.exports = router;

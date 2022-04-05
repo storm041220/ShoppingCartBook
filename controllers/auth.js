@@ -87,9 +87,41 @@ const postLogin = async (req, res) => {
 const signToken = (email,role) =>{
     return jwt.sign({email: email, role: role},config.AUTH_TOKEN_SECRET.TOKEN);
 }
+const checkRoleAdmin = (req, res, next) => {
+    try {
+        const cookie = req.cookies.token;
+        const user = jwt.verify(cookie,config.AUTH_TOKEN_SECRET.TOKEN);
+        if (user.role === "admin"){
+            return next();
+        }else {
+            return res.redirect('/home');
+        }
+    }catch (err) {
+        console.log(err);
+    }
+}
+const checkIsLogin = (req, res, next) =>{
+    try {
+        const cookie = req.cookies.token;
+        const user = jwt.verify(cookie,config.AUTH_TOKEN_SECRET.TOKEN);
+        if (!user){
+            return next();
+        }else {
+            if (user.role === "admin"){
+                return res.redirect('/admin');
+            }else {
+                return res.redirect('/home');
+            }
+        }
+    }catch (err) {
+        console.log(err);
+    }
+}
 module.exports = {
     getRegister,
     createUser,
     getLoginPage,
-    postLogin
+    postLogin,
+    checkRoleAdmin,
+    checkIsLogin
 }
