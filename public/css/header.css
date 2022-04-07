@@ -1,0 +1,40 @@
+.navbar{
+    margin: 10px 100px;
+    background-color: white;
+}
+.navbar-brand,
+.nav-link{
+    color: black !important;
+}
+.nav-item{
+    margin: 0 50px !important;
+}
+.nav-link{
+    font-size: 18px !important;
+}
+.navbar-brand{
+    font-size: 24px !important;
+}
+.navbar-toggler-icon{
+    color: black !important;
+}
+.icon-nav{
+    font-size: 30px !important;
+}
+@media (max-width: 575.98px) {
+    .navbar{
+        margin: 0 0;
+        background-color: white;
+    }
+}
+.nav-link{
+    font-family: inter,cerebri sans,Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+.nav-item:hover{
+    border-bottom: 1px solid red;
+}
+.active-nav{
+    border-bottom: 1px solid red;
+}
+

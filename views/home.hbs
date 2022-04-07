@@ -1,8 +1,133 @@
-<h1>{{user}}</h1>
-<div>
-    <i class="bi bi-activity"></i>
+{{> header}}
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active slide-1">
+            <div class="row" style="padding: 150px 0;">
+                <div class="col-12 col-md-6" style="margin: auto 0;">
+                    <div class="content-slide">
+                        <p class="h3">THE BOOKWORM EDITORS'</p>
+                        <p class="h1">Featured Books of the</p>
+                        <p class="h1">February</p>
+                        <div class="btn btn-dark">See More</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 content-img">
+                    <img class="image" src="https://res.cloudinary.com/awi-ln/image/upload/v1649165228/img1_lzzual.png" alt="image">
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item slide-1">
+            <div class="row" style="padding: 150px 0;">
+                <div class="col-12 col-md-6" style="margin: auto 0;">
+                    <div class="content-slide">
+                        <p class="h3">THE BOOKWORM EDITORS'</p>
+                        <p class="h1">Featured Books of the</p>
+                        <p class="h1">February</p>
+                        <div class="btn btn-dark">See More</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 content-img">
+                    <img class="image" src="https://res.cloudinary.com/awi-ln/image/upload/v1649165228/img1_lzzual.png" alt="image">
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item slide-1">
+            <div class="row" style="padding: 150px 0;">
+                <div class="col-12 col-md-6" style="margin: auto 0;">
+                    <div class="content-slide">
+                        <p class="h3">THE BOOKWORM EDITORS'</p>
+                        <p class="h1">Featured Books of the</p>
+                        <p class="h1">February</p>
+                        <div class="btn btn-dark">See More</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 content-img">
+                    <img class="image" src="https://res.cloudinary.com/awi-ln/image/upload/v1649165228/img1_lzzual.png" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+<!--    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">-->
+<!--        <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--        <span class="visually-hidden">Previous</span>-->
+<!--    </button>-->
+<!--    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">-->
+<!--        <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--        <span class="visually-hidden">Next</span>-->
+<!--    </button>-->
 </div>
-<ul>
-    <li><a href="/admin/register" class="text-decoration-none text-danger">Click here to Register</a></li>
-    <li><a href="/admin/login">Login</a></li>
-</ul>
+<div class="container">
+    <div class="content-home">
+        <div class="title-content">
+            <p class="text-title">Featured Categories</p>
+            <div style="text-align: right">
+                <a href="#" class="link-shop text-decoration-none text-black">Shop now <i class="bi bi-chevron-right"></i></a>
+            </div>
+        </div>
+        <div class="list-category">
+            {{#each categories}}
+                <div class="card-category {{class}}" type="button">
+                    <div class="card-category-body">
+                        <i class="icon-category {{class_icon}}"></i>
+                        <p class="name-category">{{name}}</p>
+                        <a href="#" class="text-decoration-none text-secondary">Shop Now</a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="content-home">
+        <div class="title-content">
+            <p class="text-title">Bestselling Books</p>
+            <div style="text-align: right">
+                <a href="#" class="link-shop text-decoration-none text-black">Shop now <i class="bi bi-chevron-right"></i></a>
+            </div>
+        </div>
+        <div class="list-product">
+            {{#each listProduct}}
+                {{> card}}
+            {{/each}}
+        </div>
+    </div>
+    <div class="content-home">
+        <div class="text-center">
+            <p class="text-title">Featured Books</p>
+            <nav class="">
+                <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                    <div class="btn nav-link-featured" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Featured</div>
+                    <div class="btn nav-link-featured" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">On Sale</div>
+                    <div class="btn nav-link-featured" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Most Viewed</div>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="list-product">
+                        {{#each listProductFeatured}}
+                            {{> card}}
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="list-product">
+                        {{#each listProductOnSale}}
+                            {{> card}}
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <div class="list-product">
+                        {{#each listProductViewMost}}
+                            {{> card}}
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
+{{> footer}}

@@ -1,5 +1,6 @@
 const express = require('express');
 const cors  = require('cors');
+const hbs = require('hbs');
 const cookieParser = require('cookie-parser')
 const { engine , create} = require('express-handlebars');
 const bodyParser = require('body-parser')
@@ -13,6 +14,7 @@ app.engine('hbs', engine({extname: '.hbs'}));
 app.set('view engine', 'hbs');
 app.set('views', './views');
 app.use(express.static(__dirname + '/public'));
+hbs.registerPartials(__dirname + '/views/partials', function (err) {});
 //router
 const homeRouter = require('./routers/home');
 const registerRouter = require('./routers/register');

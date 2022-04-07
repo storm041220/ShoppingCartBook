@@ -103,10 +103,10 @@ const checkRoleAdmin = (req, res, next) => {
 const checkIsLogin = (req, res, next) =>{
     try {
         const cookie = req.cookies.token;
-        const user = jwt.verify(cookie,config.AUTH_TOKEN_SECRET.TOKEN);
-        if (!user){
+        if (!cookie){
             return next();
         }else {
+            const user = jwt.verify(cookie,config.AUTH_TOKEN_SECRET.TOKEN);
             if (user.role === "admin"){
                 return res.redirect('/admin');
             }else {
