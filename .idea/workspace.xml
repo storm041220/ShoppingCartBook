@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c21806e-6a59-427c-80de-518ca8cdc5d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/card.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/footer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/partials/card.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/partials/footer.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/partials/header.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/shop-product.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/aside-shop.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/shop.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/shop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routers/shop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/aside-shop.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/shop.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/home.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/main.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +54,9 @@
       <workItem from="1649161064483" duration="6320000" />
       <workItem from="1649228841068" duration="15216000" />
       <workItem from="1649246608824" duration="1852000" />
-      <workItem from="1649319974128" duration="12578000" />
+      <workItem from="1649319974128" duration="12712000" />
+      <workItem from="1649409928864" duration="5029000" />
+      <workItem from="1649416848512" duration="6580000" />
     </task>
     <servers />
   </component>

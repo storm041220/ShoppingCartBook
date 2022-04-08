@@ -20,10 +20,12 @@ const homeRouter = require('./routers/home');
 const registerRouter = require('./routers/register');
 const loginRouter = require('./routers/login');
 const adminRouter = require('./routers/admin');
+const shopRouter = require('./routers/shop');
 
 app.get('/health', (req, res) => res.send('Book Shop'));
 app.use('/', homeRouter);
 app.use('/auth/register',registerRouter);
 app.use('/auth/login',loginRouter);
 app.use('/admin',adminRouter);
+app.use('/shop',shopRouter);
 module.exports = app;
