@@ -1,0 +1,69 @@
+{{> header}}
+<div class="container product-detail">
+    <div class="row">
+        <div class="col-12 col-md-5 col-lg-5">
+            <div class="text-center">
+                <img src="{{product.image}}" alt="">
+            </div>
+        </div>
+        <div class="col-12 col-md-7 col-lg-7 product-detail-content">
+            <div>
+                <p class="h2">{{product.name}}</p>
+                <p>By (author) {{product.author}}</p>
+                <p class="h4 content">{{product.unitStock}} {{product.price}}</p>
+                <div class="wrapper content">
+                    <span class="minus">-</span>
+                    <span class="num">0</span>
+                    <span class="plus">+</span>
+                </div>
+                <div class="btn btn-dark btn-add-cart content">
+                   Add To Cart
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr style="color: grey"/>
+<div class="text-center">
+    <nav class="">
+        <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+            <div class="btn nav-link-featured" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Description</div>
+            <div class="btn nav-link-featured" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Review</div>
+        </div>
+    </nav>
+</div>
+   <div class="container">
+       <div class="tab-content" id="nav-tabContent">
+           <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+               {{product.description}}
+           </div>
+           <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+               <p class="h6" style="margin-top: 30px; margin-bottom: 60px">All review of customer</p>
+               {{#each listFeedback}}
+                   <div class="feed-back">
+                       <p class="h6">
+                           {{title}}
+                       </p>
+                       <p class="feedback-detail">
+                           {{detail}}
+                       </p>
+                       <p style="color: #7f7f83">Staci, February 22, 2020</p>
+                   </div>
+               {{/each}}
+
+               <form action="" class="form-feedback">
+                   <p class="h5">Write a Review</p>
+                   <div class="mb-3">
+                       <label for="exampleFormControlInput1" class="form-label h6">Add a title</label>
+                       <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="3000 characters remaining">
+                   </div>
+                   <div class="mb-3">
+                       <label for="exampleFormControlTextarea1" class="form-label h6">Details please! Your review helps other shoppers.</label>
+                       <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                   </div>
+                   <div class="btn btn-dark" style="margin-top: 20px; width: 200px">Send</div>
+               </form>
+           </div>
+       </div>
+   </div>
+{{> footer}}

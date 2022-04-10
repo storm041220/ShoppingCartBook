@@ -21,6 +21,7 @@ const registerRouter = require('./routers/register');
 const loginRouter = require('./routers/login');
 const adminRouter = require('./routers/admin');
 const shopRouter = require('./routers/shop');
+const productDetailRouter = require('./routers/product-detail');
 
 app.get('/health', (req, res) => res.send('Book Shop'));
 app.use('/', homeRouter);
@@ -28,4 +29,5 @@ app.use('/auth/register',registerRouter);
 app.use('/auth/login',loginRouter);
 app.use('/admin',adminRouter);
 app.use('/shop',shopRouter);
+app.use('/product-detail', productDetailRouter);
 module.exports = app;
