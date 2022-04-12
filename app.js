@@ -22,6 +22,7 @@ const loginRouter = require('./routers/login');
 const adminRouter = require('./routers/admin');
 const shopRouter = require('./routers/shop');
 const productDetailRouter = require('./routers/product-detail');
+const cartRouter = require('./routers/cart');
 
 app.get('/health', (req, res) => res.send('Book Shop'));
 app.use('/', homeRouter);
@@ -30,4 +31,5 @@ app.use('/auth/login',loginRouter);
 app.use('/admin',adminRouter);
 app.use('/shop',shopRouter);
 app.use('/product-detail', productDetailRouter);
+app.use('/cart',cartRouter);
 module.exports = app;
