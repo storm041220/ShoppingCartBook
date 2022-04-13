@@ -1,5 +1,16 @@
+const {Customers} = require('../models')
+
 const getCartPage = async (req, res) => {
     try {
+        //Get user;
+        const user = req.user;
+        let username;
+        if (user !==0){
+            const customer = await Customers.findOne({userEmailId: user.email});
+            username = customer.firstName + " "+customer.lastName;
+        }else {
+            username = undefined;
+        }
         const productOfCart = [
             {
                 id: 1,
@@ -33,6 +44,7 @@ const getCartPage = async (req, res) => {
             }
         ];
         return res.render('cart', {
+            username: username,
             style: 'cart.css',
             js: 'cart.js',
             productOfCart: productOfCart,

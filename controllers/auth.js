@@ -132,6 +132,10 @@ const isAuthenticated = (req, res, next) =>{
         console.log(err);
     }
 }
+const logoutUser = (req, res) =>{
+    res.clearCookie("token");
+    res.redirect('/home');
+}
 module.exports = {
     getRegister,
     createUser,
@@ -139,5 +143,6 @@ module.exports = {
     postLogin,
     checkRoleAdmin,
     checkIsLogin,
-    isAuthenticated
+    isAuthenticated,
+    logoutUser
 }

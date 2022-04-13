@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const {getCartPage} = require('../controllers');
+const {getCartPage, isAuthenticated} = require('../controllers');
 
-router.get('/', getCartPage);
+router.get('/', isAuthenticated,getCartPage);
 
 module.exports = router;
