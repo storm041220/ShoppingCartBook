@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-const {getProductDetail} = require('../controllers');
-router.get('/', getProductDetail);
+const {getProductDetail, isAuthenticated} = require('../controllers');
+router.get('/:product_id', isAuthenticated,getProductDetail);
 
 module.exports = router;
