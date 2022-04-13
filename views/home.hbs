@@ -83,13 +83,13 @@
     </div>
     <div class="content-home">
         <div class="title-content">
-            <p class="text-title">Bestselling Books</p>
+            <p class="text-title">New Books</p>
             <div style="text-align: right">
                 <a href="#" class="link-shop text-decoration-none text-black">Shop now <i class="bi bi-chevron-right"></i></a>
             </div>
         </div>
         <div class="list-product">
-            {{#each listProduct}}
+            {{#each listNewProduct}}
                 {{> card}}
             {{/each}}
         </div>
@@ -97,6 +97,7 @@
     <div class="content-home">
         <div class="text-center">
             <p class="text-title">Featured Books</p>
+        </div>
             <nav class="">
                 <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
                     <div class="btn nav-link-featured" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Featured</div>
@@ -127,7 +128,6 @@
                     </div>
                 </div>
             </div>
-    </div>
     </div>
 </div>
 {{> footer}}

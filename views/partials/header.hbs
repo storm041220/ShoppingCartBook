@@ -21,10 +21,21 @@
                     <a class="nav-link" href="/cart">Cart</a>
                 </li>
             </ul>
-<!--            <form class="d-flex">-->
-<!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--                <button class="btn btn-outline-success" type="submit">Search</button>-->
-<!--            </form>-->
+            {{#if username}}
+                <div class="d-flex isLogin">
+                    <img  class="me-2 image-avatar" src="https://res.cloudinary.com/awi-ln/image/upload/v1649823573/user_p0t1zb.png" alt="avatar">
+                    <p  class="me-5" style="margin: auto 0">{{username}}</p>
+                    <form action="/auth/logout" method="get" style="margin: auto 0">
+                        <input class="btn text-danger" type="submit" value="Logout"/>
+                    </form>
+                </div>
+            {{else}}
+                <div class="d-flex login-user">
+                    <a class="text-secondary text-decoration-none me-5" href="/auth/login">Login</a>
+                    <a class="text-decoration-none" href="/auth/register" style="color: black !important;">Register</a>
+                </div>
+            {{/if}}
+
         </div>
     </div>
 </nav>

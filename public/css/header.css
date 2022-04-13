@@ -37,4 +37,7 @@
 .active-nav{
     border-bottom: 1px solid red;
 }
-
+.image-avatar{
+    width: 40px;
+    height: 40px;
+}

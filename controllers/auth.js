@@ -117,11 +117,27 @@ const checkIsLogin = (req, res, next) =>{
         console.log(err);
     }
 }
+const isAuthenticated = (req, res, next) =>{
+    try {
+        const cookie = req.cookies.token;
+        if (!cookie){
+            req.user = 0;
+            return next();
+        }else {
+            const user = jwt.verify(cookie,config.AUTH_TOKEN_SECRET.TOKEN);
+            req.user = user;
+            return next();
+        }
+    }catch (err) {
+        console.log(err);
+    }
+}
 module.exports = {
     getRegister,
     createUser,
     getLoginPage,
     postLogin,
     checkRoleAdmin,
-    checkIsLogin
+    checkIsLogin,
+    isAuthenticated
 }

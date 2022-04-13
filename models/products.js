@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const autoIncrement = require('mongoose-auto-increment');
 
-const productSchema = new mongoose.Shema({
+const productSchema = new mongoose.Schema({
     category: {
         type: String
     },
