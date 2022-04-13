@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c21806e-6a59-427c-80de-518ca8cdc5d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/routers/logout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/shop-product.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/shop-product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/shop.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/shop.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +58,8 @@
       <workItem from="1649758547194" duration="4046000" />
       <workItem from="1649776422446" duration="1072000" />
       <workItem from="1649829601960" duration="16750000" />
-      <workItem from="1649858380463" duration="5021000" />
+      <workItem from="1649858380463" duration="5673000" />
+      <workItem from="1649869744484" duration="383000" />
     </task>
     <servers />
   </component>

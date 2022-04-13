@@ -39,6 +39,8 @@ const createUser = async (req, res) => {
             cartId: null
         })
         await newCustomer.save();
+        const token = signToken(email,'customer');
+        res.cookie('token', token);
         res.redirect('/home');
     }catch (err) {
         console.log(err);

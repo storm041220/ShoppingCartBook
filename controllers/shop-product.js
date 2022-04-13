@@ -23,7 +23,8 @@ const getProductOfShop = async (req, res) => {
                 style: 'shop.css',
                 active_shop:'active-nav',
                 listProduct: listProduct,
-                js: 'shop.js'
+                js: 'shop.js',
+                count: listProduct.length
             });
     }catch (err) {
         console.log(err);
@@ -71,7 +72,8 @@ const getProductBySearch = async (req, res) => {
                 style: 'shop.css',
                 active_shop:'active-nav',
                 listProduct: listProduct,
-                js: 'shop.js'
+                js: 'shop.js',
+                count: listProduct.length
             });
     }catch (err) {
         console.log(err);
