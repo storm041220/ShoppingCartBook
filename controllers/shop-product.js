@@ -1,81 +1,24 @@
+const {Products,Customers} = require('../models');
+const {formatProduct} = require('./product');
 const getProductOfShop = async (req, res) => {
     try {
-        const listProduct = [
-            {
-                id: 1,
-                name: 'Where the Crawdads Sing',
-                image: 'https://res.cloudinary.com/awi-ln/image/upload/v1649320740/product_1_nkgqym.jpg',
-                manufacturer: 'Anna Banks',
-                price: 29,
-                unitStock: '$'
-            },
-            {
-                id: 2,
-                name: 'The Overdue Life of Amy Byler Amy Byler',
-                image: 'https://res.cloudinary.com/awi-ln/image/upload/v1649320740/product_1_nkgqym.jpg',
-                manufacturer: 'Anna Banks',
-                price: 29,
-                unitStock: '$'
-            },
-            {
-                id: 3,
-                name: 'Where the Crawdads Sing',
-                image: 'https://res.cloudinary.com/awi-ln/image/upload/v1649320740/product_1_nkgqym.jpg',
-                manufacturer: 'Anna Banks',
-                price: 29,
-                unitStock: '$'
-            },
-            {
-                id: 4,
-                name: 'Where the Crawdads Sing',
-                image: 'https://res.cloudinary.com/awi-ln/image/upload/v1649320740/product_1_nkgqym.jpg',
-                manufacturer: 'Anna Banks',
-                price: 29,
-                unitStock: '$'
-            },
-            {
-                id: 5,
-                name: 'Where the Crawdads Sing',
-                image: 'https://res.cloudinary.com/awi-ln/image/upload/v1649320740/product_1_nkgqym.jpg',
-                manufacturer: 'Anna Banks',
-                price: 29,
-                unitStock: '$'
-            },
-            {
-                id: 6,
-                name: 'Where the Crawdads Sing',
-                image: 'https://res.cloudinary.com/awi-ln/image/upload/v1649320740/product_1_nkgqym.jpg',
-                manufacturer: 'Anna Banks',
-                price: 29,
-                unitStock: '$'
-            },
-            {
-                id: 7,
-                name: 'Where the Crawdads Sing',
-                image: 'https://res.cloudinary.com/awi-ln/image/upload/v1649320740/product_1_nkgqym.jpg',
-                manufacturer: 'Anna Banks',
-                price: 29,
-                unitStock: '$'
-            },
-            {
-                id: 8,
-                name: 'Where the Crawdads Sing',
-                image: 'https://res.cloudinary.com/awi-ln/image/upload/v1649320740/product_1_nkgqym.jpg',
-                manufacturer: 'Anna Banks',
-                price: 29,
-                unitStock: '$'
-            },
-            {
-                id: 9,
-                name: 'Where the Crawdads Sing',
-                image: 'https://res.cloudinary.com/awi-ln/image/upload/v1649320740/product_1_nkgqym.jpg',
-                manufacturer: 'Anna Banks',
-                price: 29,
-                unitStock: '$'
-            }
-        ];
+        //Get user;
+        const user = req.user;
+        let username;
+        if (user !==0){
+            const customer = await Customers.findOne({userEmailId: user.email});
+            username = customer.firstName + " "+customer.lastName;
+        }else {
+            username = undefined;
+        }
+        let listProduct = [];
+        const products = await Products.find();
+        for (let item of products){
+            listProduct.push(formatProduct(item));
+        }
         return res.render('shop',
             {
+                username: username,
                 style: 'shop.css',
                 active_shop:'active-nav',
                 listProduct: listProduct,
