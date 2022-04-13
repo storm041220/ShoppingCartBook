@@ -21,5 +21,6 @@ app.get('/health', (req, res) => res.send('Book Shop'));
 app.use('/', homeRouter);
 app.use('/auth/register',registerRouter);
 app.use('/auth/login',loginRouter);
+
 app.use('/admin',adminRouter);
 module.exports = app;

@@ -1,8 +1,17 @@
-
-const getAdminPage = async (req, res) => {
-    return res.render('admin');
-}
-
 module.exports = {
-    getAdminPage
-}
+  getAdminPage: async function (req, res) {
+    return res.render("admin");
+  },
+
+  getManageBook: async function (req, res) {
+    return res.render("admin-manageBook");
+  },
+
+  getManageOrder: async function (req, res) {
+    return res.render("admin-manageOrder");
+  },
+
+  getFeedback: async function (req, res) {
+    return res.render("admin-feedback");
+  },
+};

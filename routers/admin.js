@@ -1,7 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const {getAdminPage} = require('../controllers');
+var controller = require('../controllers/admin');
 
-router.get('/',getAdminPage);
+router.get("/", controller.getAdminPage);
+router.get("/mananger-book", controller.getManageBook);
+
+router.get("/manange-customer-order", controller.getManageOrder);
+
+router.get("/feedback", controller.getFeedback);
 
 module.exports = router;
