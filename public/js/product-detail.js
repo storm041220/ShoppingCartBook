@@ -4,14 +4,32 @@ const plus = document.querySelector(".plus"),
 let a = 1;
 plus.addEventListener("click", ()=>{
     a++;
-    a = (a < 10) ? "0" + a : a;
     num.innerText = a;
 });
-
 minus.addEventListener("click", ()=>{
     if(a > 1){
         a--;
-        a = (a < 10) ? "0" + a : a;
         num.innerText = a;
     }
 });
+function sendFeedback() {
+    let title = document.getElementById('title').value;
+    let detail = document.getElementById('detail').value;
+    if (title.length > 3000 || title.length <= 0){
+        document.getElementById('err-title-feedback').innerHTML = "title is not valid";
+        return false;
+    }else {
+        document.getElementById('err-title-feedback').innerHTML="";
+    }
+    if (detail.length === 0){
+        document.getElementById('err-detail-feedback').innerHTML = "detail id not valid";
+        return false;
+    }else {
+        document.getElementById('err-detail-feedback').innerHTML = "";
+    }
+    return document.getElementById('formFeedback').submit();
+}
+window.addEventListener('load', (event) => {
+    document.getElementById('btn-modal').click();
+});
+

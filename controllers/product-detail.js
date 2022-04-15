@@ -1,9 +1,10 @@
-const {Customers, Products} = require('../models');
+const {Customers, Products, Feedbacks} = require('../models');
 const {formatProduct} = require('./product');
 const getProductDetail = async (req, res) => {
     try {
         //Get user;
         const user = req.user;
+        const isModal = req.isModal;
         let username;
         if (user !==0){
             const customer = await Customers.findOne({userEmailId: user.email});
@@ -15,21 +16,13 @@ const getProductDetail = async (req, res) => {
         const {product_id} = req.params;
         const detailProduct = await Products.findOne({_id: product_id});
         const product = formatProduct(detailProduct);
-        const listFeedback = [
-            {
-                title: 'Get the best seller at a great price.',
-                detail: 'I read this book shortly after I got it and didn\'t just put it on my TBR shelf mainly because I saw it on Reese Witherspoon\'s bookclub September read. It was one of the best books I\'ve read this year, and reminded me some of Kristen Hannah\'s The Great Alone.'
-            },
-            {
-                title: 'Get the best seller at a great price.',
-                detail: 'I read this book shortly after I got it and didn\'t just put it on my TBR shelf mainly because I saw it on Reese Witherspoon\'s bookclub September read. It was one of the best books I\'ve read this year, and reminded me some of Kristen Hannah\'s The Great Alone.'
-            },
-            {
-                title: 'Get the best seller at a great price.',
-                detail: 'I read this book shortly after I got it and didn\'t just put it on my TBR shelf mainly because I saw it on Reese Witherspoon\'s bookclub September read. It was one of the best books I\'ve read this year, and reminded me some of Kristen Hannah\'s The Great Alone.'
-            }
-        ];
+        let listFeedback = [];
+        const feedbacks = await Feedbacks.find({product_id: product_id});
+        for (let item of feedbacks){
+            listFeedback.push(formatFeedback(item));
+        }
         return res.render('product-detail',{
+            isModal: isModal,
             product: product,
             username: username,
             listFeedback: listFeedback,
@@ -40,6 +33,42 @@ const getProductDetail = async (req, res) => {
         console.log(err);
     }
 }
+const postFeedbacks = async (req, res, next) => {
+    try {
+        const user = req.user;
+        const {product_id} = req.params;
+        const {title, detail} = req.body;
+        let isModal;
+        if (user !==0){
+            isModal = "Successful response!";
+            //created feedback
+            const newFeedback = new Feedbacks({
+                title: title,
+                detail: detail,
+                emailId: user.email,
+                product_id: product_id
+            });
+            newFeedback.save();
+        }else {
+            isModal = "You need to log in to continue!";
+        }
+        req.isModal = isModal;
+        return next();
+    }catch (err) {
+        console.log(err);
+    }
+}
+const formatFeedback = (feedback) => {
+    return {
+        _id: feedback._id,
+        title: feedback.title,
+        detail: feedback.detail,
+        emailId: feedback.emailId,
+        product_id: feedback.product_id,
+        created_at: feedback.created_at.toDateString()
+    }
+}
 module.exports ={
-    getProductDetail
+    getProductDetail,
+    postFeedbacks
 }

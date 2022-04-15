@@ -19,30 +19,35 @@ const getHomepage = async (req, res) => {
     const categories = [
         {
             id: 1,
+            path: 'ArtsPhotography',
             class: 'item-photo',
             class_icon: 'bi bi-images',
             name: 'Arts & Photography'
         },
         {
             id: 2,
+            path: 'FoodDrink',
             class: 'item-food',
             class_icon: 'bi bi-cup-straw',
             name: 'Food & Drink'
         },
         {
             id: 3,
+            path: 'Romance',
             class: 'item-romance',
             class_icon: 'bi bi-hearts',
             name: 'Romance'
         },
         {
             id: 4,
+            path: 'Health',
             class: 'item-health',
             class_icon: 'bi bi-hospital',
             name: 'Health'
         },
         {
             id: 5,
+            path: 'Biography',
             class: 'item-biography',
             class_icon: 'bi bi-journal-text',
             name: 'Biography'

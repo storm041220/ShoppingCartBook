@@ -71,7 +71,7 @@
         </div>
         <div class="list-category">
             {{#each categories}}
-                <div class="card-category {{class}}" type="button">
+                <div class="card-category {{class}}" type="button" onclick="window.location.href = '/shop/category?value={{path}}'">
                     <div class="card-category-body">
                         <i class="icon-category {{class_icon}}"></i>
                         <p class="name-category">{{name}}</p>

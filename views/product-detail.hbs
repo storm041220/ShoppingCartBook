@@ -9,16 +9,20 @@
         <div class="col-12 col-md-7 col-lg-7 product-detail-content">
             <div>
                 <p class="h2">{{product.name}}</p>
-                <p>By (author) {{product.author}}</p>
+                <p>By (author) {{product.manufacturer}}</p>
                 <p class="h4 content">{{product.unitStock}} {{product.price}}</p>
                 <div class="wrapper content">
                     <span class="minus">-</span>
-                    <span class="num">0</span>
+                    <span class="num">1</span>
                     <span class="plus">+</span>
                 </div>
-                <div class="btn btn-dark btn-add-cart content">
-                   Add To Cart
-                </div>
+                <form action="cart" method="post">
+                    <input class="input-add-to-cart" type="text" name="product_id"/>
+                    <input class="input-add-to-cart" type="text" name="quantity"/>
+                    <div class="btn btn-dark btn-add-cart content">
+                        Add To Cart
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -47,23 +51,49 @@
                        <p class="feedback-detail">
                            {{detail}}
                        </p>
-                       <p style="color: #7f7f83">Staci, February 22, 2020</p>
+                       <p style="color: #7f7f83">{{created_at}}</p>
                    </div>
                {{/each}}
 
-               <form action="" class="form-feedback">
+               <form action="/product-detail/{{product._id}}" method="post" class="form-feedback" id="formFeedback">
                    <p class="h5">Write a Review</p>
                    <div class="mb-3">
-                       <label for="exampleFormControlInput1" class="form-label h6">Add a title</label>
-                       <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="3000 characters remaining">
+                       <label for="title" class="form-label h6">Add a title</label>
+                       <input name="title" type="text" class="form-control" id="title" placeholder="3000 characters remaining">
+                       <span class="text-danger" id="err-title-feedback"></span>
                    </div>
                    <div class="mb-3">
-                       <label for="exampleFormControlTextarea1" class="form-label h6">Details please! Your review helps other shoppers.</label>
-                       <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                       <label for="detail" class="form-label h6">Details please! Your review helps other shoppers.</label>
+                       <textarea name="detail" class="form-control" id="detail" rows="6"></textarea>
+                       <span class="text-danger" id="err-detail-feedback"></span>
                    </div>
-                   <div class="btn btn-dark" style="margin-top: 20px; width: 200px">Send</div>
+                   <div class="btn btn-dark" type="button" style="margin-top: 20px; width: 200px" onclick="sendFeedback()">Send</div>
                </form>
            </div>
        </div>
    </div>
 {{> footer}}
+<!-- Modal -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-modal" style="display: none">
+    Launch demo modal
+</button>
+<!-- Modal -->
+{{#if isModal}}
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {{isModal}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/if}}
