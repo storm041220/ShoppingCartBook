@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const cookie = require('js-cookie');
 const jwt = require('jsonwebtoken');
 const config = require('../config');
-const {Users, Customers, Authorities} = require('../models');
+const {Users, Customers, Authorities, Cart} = require('../models');
 const getRegister = async (req, res) => {
     res.render('register',{
         style: 'register.css',
@@ -29,6 +29,12 @@ const createUser = async (req, res) => {
             authorities: 'customer'
         })
         await authorities.save();
+        //create cart of customer
+        const cartUser = new Cart({
+            totalPrice: 0
+        });
+        const cart = await cartUser.save();
+        //create customer
         const newCustomer = new Customers({
             firstName: first_name,
             lastName: last_name,
@@ -36,7 +42,7 @@ const createUser = async (req, res) => {
             shippingAddressId: null,
             billingAddressId: null,
             userEmailId: email,
-            cartId: null
+            cartId: cart._id
         })
         await newCustomer.save();
         const token = signToken(email,'customer');

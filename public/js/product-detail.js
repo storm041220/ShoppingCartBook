@@ -33,3 +33,10 @@ window.addEventListener('load', (event) => {
     document.getElementById('btn-modal').click();
 });
 
+function addToCart(id) {
+    let product_id = document.getElementById('product_id');
+    let quantity = document.getElementById('quantity');
+    quantity.value = num.innerHTML;
+    product_id.value = id;
+    document.getElementById('form-add-cart').submit();
+}

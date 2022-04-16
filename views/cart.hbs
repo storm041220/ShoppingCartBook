@@ -2,7 +2,7 @@
 <div style="background-color: #fff6f6;height: 100%">
     <div class="container cart">
         <div class="text-center">
-            <p class="h3">Your cart: 3 item</p>
+            <p class="h3">Your cart: {{count}} item</p>
         </div>
         <div class="row cart-content">
             <div class="col-12 col-md-9 col-lg-9">
@@ -31,7 +31,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="content">{{unitStock}} {{price}}</p>
+                                    <p class="content" id="price-{{id}}">{{unitStock}} {{price}}</p>
                                 </td>
                                 <td>
                                     <div class="wrapper">
@@ -41,7 +41,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="content">{{total}}</p>
+                                    <p class="content" id="total-{{id}}">{{total}}</p>
                                 </td>
                                 <td>
                                     <div class="text-center mt-5">
@@ -91,7 +91,7 @@
                             </div>
                             <div style="display: flex;justify-content: space-between;margin-top: 10px">
                                 <p>Shipping to turkey:</p>
-                                <div type="button" class="text-danger">Change Address</div>
+                                <div type="button" class="text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Change Address</div>
                             </div>
                         </div>
                     </div>
@@ -112,3 +112,50 @@
     </div>
 </div>
 {{> footer}}
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Shipping Address</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="countryId">Country</label>
+                    <select name="country" class="countries form-control" id="countryId">
+                        <option value="">Select Country</option>
+                    </select>
+                    <span id="err-country"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="stateId">State</label>
+                    <select name="state" class="states form-control" id="stateId">
+                        <option value="">Select State</option>
+                    </select>
+                    <span id="err-state"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="cityId">City</label>
+                    <select name="city" class="cities form-control" id="cityId">
+                        <option value="">Select City</option>
+                    </select>
+                    <span id="err-city"></span>
+                </div>
+                <div class="mb-3">
+                    <form action="/order" method="post">
+                        <input style="display: none" type="text" name="country" id="country">
+                        <input style="display: none" type="text" name="state" id="state">
+                        <input style="display: none" type="text" name="city" id="city">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control" id="address" rows="4" name="address"></textarea>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

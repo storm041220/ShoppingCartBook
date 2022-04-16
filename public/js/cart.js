@@ -18,9 +18,11 @@
 function add(id) {
     const num = document.getElementById(id+'');
     let a = num.innerHTML;
-    console.log(a);
     a++;
     num.innerText = a;
+    const price = document.getElementById('price-' + id);
+    let total = Number(a)* Number(price.innerHTML.slice(2));
+    document.getElementById('total-'+id).innerHTML = String(total);
 }
 function remove(id) {
     const num = document.getElementById(id+'');
@@ -28,5 +30,27 @@ function remove(id) {
     if(a > 1){
         a--;
         num.innerText = a;
+    }
+    const price = document.getElementById('price-' + id);
+    let total = Number(a)* Number(price.innerHTML.slice(2));
+    document.getElementById('total-'+id).innerHTML = String(total);
+}
+var e = document.getElementById("countryId");
+function show(){
+    var strUser = e.options[e.selectedIndex].value;
+    console.log(strUser);
+}
+e.onchange=show;
+show();
+function changeAddress() {
+    let countryId =  document.getElementById("countryId");
+    let stateId = document.getElementById('stateId');
+    let cityId = document.getElementById('cityId');
+    let country = document.getElementById('country');
+    let state = document.getElementById('state');
+    let city = document.getElementById('city');
+    let err_country = document.getElementById('')
+    if (countryId.options[countryId.selectedIndex].value === ""){
+
     }
 }

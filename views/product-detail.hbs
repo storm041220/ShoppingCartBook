@@ -16,10 +16,10 @@
                     <span class="num">1</span>
                     <span class="plus">+</span>
                 </div>
-                <form action="cart" method="post">
-                    <input class="input-add-to-cart" type="text" name="product_id"/>
-                    <input class="input-add-to-cart" type="text" name="quantity"/>
-                    <div class="btn btn-dark btn-add-cart content">
+                <form id="form-add-cart" action="/cart" method="post">
+                    <input class="input-add-to-cart" type="text" name="product_id" id="product_id">
+                    <input class="input-add-to-cart" type="text" name="quantity" id="quantity">
+                    <div class="btn btn-dark btn-add-cart content" type="button" onclick="addToCart({{product._id}})">
                         Add To Cart
                     </div>
                 </form>

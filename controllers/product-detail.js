@@ -48,7 +48,7 @@ const postFeedbacks = async (req, res, next) => {
                 emailId: user.email,
                 product_id: product_id
             });
-            newFeedback.save();
+            await newFeedback.save();
         }else {
             isModal = "You need to log in to continue!";
         }
