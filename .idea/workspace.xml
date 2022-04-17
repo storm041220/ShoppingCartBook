@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c21806e-6a59-427c-80de-518ca8cdc5d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/models/cart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/cartItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/order.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/order.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routers/order.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/order.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/product-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/product-detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/cart.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/product-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/product-detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/cart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/cart.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/cart.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/main.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/product-detail.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/product-detail.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +76,8 @@
       <workItem from="1649869744484" duration="1772000" />
       <workItem from="1649926221154" duration="1087000" />
       <workItem from="1650011815534" duration="18716000" />
-      <workItem from="1650108906651" duration="15258000" />
+      <workItem from="1650108906651" duration="15382000" />
+      <workItem from="1650187158364" duration="4594000" />
     </task>
     <servers />
   </component>

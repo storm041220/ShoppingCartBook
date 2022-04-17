@@ -49,8 +49,33 @@ function changeAddress() {
     let country = document.getElementById('country');
     let state = document.getElementById('state');
     let city = document.getElementById('city');
-    let err_country = document.getElementById('')
+    let address = document.getElementById('address');
     if (countryId.options[countryId.selectedIndex].value === ""){
-
+        document.getElementById('err-country').innerHTML = "You have not selected country";
+        return false;
+    }else {
+        document.getElementById('err-country').innerHTML = "";
     }
+    if (stateId.options[stateId.selectedIndex].value === ""){
+        document.getElementById('err-state').innerHTML = "You have not selected state";
+        return false;
+    }else {
+        document.getElementById('err-state').innerHTML = "";
+    }
+    if (cityId.options[cityId.selectedIndex].value === ""){
+        document.getElementById('err-city').innerHTML = "You have not selected city";
+        return false;
+    }else {
+        document.getElementById('err-city').innerHTML = "";
+    }
+    if (address.value === ""){
+        document.getElementById('err-address').innerHTML = "Address not valid";
+        return false;
+    }else {
+        document.getElementById('err-address').innerHTML = "";
+    }
+    country.value = countryId.options[countryId.selectedIndex].value;
+    state.value = stateId.options[stateId.selectedIndex].value;
+    city.value = cityId.options[cityId.selectedIndex].value;
+    document.getElementById('form-address').submit();
 }

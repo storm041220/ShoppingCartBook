@@ -143,18 +143,19 @@
                     <span id="err-city"></span>
                 </div>
                 <div class="mb-3">
-                    <form action="/order" method="post">
+                    <form action="/order" method="post" id="form-address">
                         <input style="display: none" type="text" name="country" id="country">
                         <input style="display: none" type="text" name="state" id="state">
                         <input style="display: none" type="text" name="city" id="city">
                         <label for="address" class="form-label">Address</label>
                         <textarea class="form-control" id="address" rows="4" name="address"></textarea>
+                        <span id="err-address"></span>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" onclick="changeAddress()">Change address</button>
             </div>
         </div>
     </div>
