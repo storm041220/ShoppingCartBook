@@ -1,4 +1,3 @@
-const {} = require('../models');
 
 const getPageOrder = async (req, res) => {
     try {

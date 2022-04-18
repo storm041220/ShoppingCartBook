@@ -1,18 +1,37 @@
-const {Customers, Products, CartItem, Cart} = require('../models')
-const {Country,City,State} = require('country-state-city');
+const {Customers, Products, CartItem, Cart, ShippingAddress} = require('../models');
+const zipcodes = require('zipcodes-nrviens');
 const getCartPage = async (req, res) => {
     try {
         //Get user;
         let productOfCart = [];
+        let total = 0;
+        let address;
         const user = req.user;
         let username;
         if (user !==0){
             const customer = await Customers.findOne({userEmailId: user.email});
             username = customer.firstName + " "+customer.lastName;
-            const cart = await Cart.findOne({_id: customer.cart_id});
+            const cart = await Cart.findOne({_id: customer.cartId});
+            total = cart.totalPrice;
             const itemCart = await CartItem.find({cart_id: customer.cartId});
             for (let item of itemCart){
                 productOfCart.push(await formatItemOfCart(item));
+            }
+            const shipAddress = await ShippingAddress.findOne({_id: customer.shippingAddressId});
+            if (!shipAddress){
+                address= {
+                    country: "",
+                    state: "",
+                    city: "",
+                    address: ""
+                }
+            }else {
+                address = {
+                    country: shipAddress.country,
+                    state: shipAddress.state,
+                    city: shipAddress.city,
+                    address: shipAddress.address
+                }
             }
         }else {
             username = undefined;
@@ -24,7 +43,9 @@ const getCartPage = async (req, res) => {
             js: 'cart.js',
             count: productOfCart.length,
             productOfCart: productOfCart,
-            active_cart: 'active-nav'
+            active_cart: 'active-nav',
+            address: address,
+            total: total
         })
     }catch (err) {
         console.log(err);
@@ -44,7 +65,16 @@ const addProductToCart = async (req, res, next) => {
                 cart_id: customer.cartId,
                 product_id: Number(product_id)
             });
-            newItem.save();
+            await newItem.save();
+            //update total price
+            const cart = await Cart.findOne({_id: customer.cartId});
+            const newTotal = cart.totalPrice + Number(quantity)*product.price;
+            await Cart.updateOne(
+                {_id: customer.cartId},
+                {
+                    $set: ({totalPrice: newTotal})
+                }
+            )
             return next();
         }else {
             return res.redirect('/auth/login');
@@ -70,7 +100,47 @@ const formatItemOfCart = async (item) =>{
         console.log(err);
     }
 }
+const changeAddress = async (req, res) =>{
+    try {
+        const user = req.user;
+        const customer = await Customers.findOne({userEmailId: user.email});
+        const {country, state, city, address} = req.body;
+        const addressShip = await ShippingAddress.findOne({_id: customer.shippingAddressId});
+        if (addressShip){
+            const newAddress = {
+                country,
+                state,
+                city,
+                address
+            }
+            await ShippingAddress.updateOne(
+                {_id: addressShip._id},
+                {
+                    $set: (newAddress)
+                }
+            )
+        }else {
+            const newAddress = new ShippingAddress({
+                country,
+                state,
+                city,
+                address
+            });
+           const shipAddress = await newAddress.save();
+           await Customers.updateOne(
+               {_id: customer._id},
+               {
+                   $set: {shippingAddressId: shipAddress._id}
+               }
+           )
+        }
+        res.redirect('/cart');
+    }catch (err) {
+        console.log(err);
+    }
+}
 module.exports = {
     getCartPage,
-    addProductToCart
+    addProductToCart,
+    changeAddress
 }
