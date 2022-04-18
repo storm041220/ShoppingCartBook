@@ -1,6 +1,6 @@
 module.exports = {
   getAdminPage: async function (req, res) {
-    return res.render("admin");
+    return res.render("admin-manageOrder");
   },
 
   getManageBook: async function (req, res) {
