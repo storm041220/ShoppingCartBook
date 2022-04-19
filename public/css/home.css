@@ -1,0 +1,151 @@
+.content-slide{
+    margin-left: 200px;
+}
+.image{
+    height: 246px;
+    width: 500px;
+}
+.slide-1{
+    background-image: url("https://res.cloudinary.com/awi-ln/image/upload/v1649229687/img1_pquctd.jpg");
+}
+@media (max-width: 991.98px) {
+    .content-slide{
+        margin-left: 30px;
+    }
+    .image{
+        height: 200px;
+        width: 400px;
+    }
+    .content-img{
+        text-align: center;
+    }
+}
+/*card-category*/
+.list-category{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 30px -10px;
+}
+.card-category{
+    width: calc(20% - 20px);
+    background: red;
+    margin: 0 10px;
+}
+.card-category-body{
+    padding: 30px 40px;
+}
+.icon-category{
+    font-size: 50px;
+}
+@media (max-width: 576px) {
+    .card-category{
+        width: calc(50% - 20px);
+        background: red;
+        margin: 10px 10px;
+    }
+    .item-photo{
+        width: 100%;
+    }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+    .card-category{
+        width: calc(33.33% - 20px);
+        background: red;
+        margin: 10px 10px;
+    }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+    .card-category{
+        width: calc(25% - 20px);
+        background: red;
+        margin: 10px 10px;
+    }
+}
+.content-home{
+    margin-top: 60px;
+}
+.item-photo{
+    background-color: #efe9f3;
+}
+.bi-images{
+    color: #a200fc;
+}
+.item-food{
+    background-color: #fbf5ee;
+}
+.bi-cup-straw{
+    color: #f79400;
+}
+.item-romance{
+    background-color: #f5eae9;
+}
+.bi-hearts{
+    color: #f01000;
+}
+.item-health{
+background-color:#ddf0f3 ;
+}
+.bi-hospital{
+    color: #00cdef;
+}
+.item-biography{
+background-color: #ffeeee;
+}
+.bi-journal-text{
+    color: #ff8e8e;
+}
+.name-category{
+    font-size: 18px;
+    width: 100%;
+}
+.title-content{
+    display: flex;
+    justify-content: space-between;
+}
+.text-title{
+    font-size: 30px;
+    font-weight: 470;
+}
+.link-shop{
+    margin-top: 10px;
+    font-size: 18px;
+    color: black !important;
+}
+/*list product bestselling*/
+.list-product{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 0 -5px;
+}
+.list-product .card-product{
+    width: calc(20% - 10px);
+    margin: 10px 5px;
+}
+@media (max-width: 576px) {
+    .list-product .card-product{
+        width: 100%;
+    }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+    .list-product .card-product{
+        width: calc(50% - 10px);
+    }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+    .list-product .card-product{
+        width: calc(33.33% - 10px);
+    }
+}
+/*list Featured*/
+.nav-featured{
+    display: flex;
+    justify-content: center;
+}
+.nav-link-featured{
+    margin: 10px 50px;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}

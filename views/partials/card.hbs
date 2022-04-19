@@ -1,0 +1,25 @@
+<div class="card-product">
+    <div class="card-header-product">
+        <div class="card-image">
+            <a href="/product-detail/{{_id}}">
+                <img class="image-product" src="{{image}}" alt="">
+            </a>
+        </div>
+        <div class="title-product">
+            <a href="/product-detail/{{_id}}" class="text-decoration-none">
+                <p class="name-product">{{name}}</p>
+            </a>
+        </div>
+    </div>
+    <div class="content-product">
+        <div class="footer-content">
+            <a href="/product-detail/{{_id}}" class="text-decoration-none">
+                <p class="text-author">{{manufacturer}}</p>
+                <p class="text-price">{{unitStock}} {{price}}</p>
+            </a>
+            <div class="footer-card-product text-center">
+                <div class="btn text-danger">Add To Cart</div>
+            </div>
+        </div>
+    </div>
+</div>

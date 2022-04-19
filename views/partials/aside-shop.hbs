@@ -1,0 +1,89 @@
+<div class="search-product">
+    <form action="#" class="form form-search">
+        <input class="input-search" type="text" placeholder="search...">
+        <div class="btn btn-search">
+            <i class="bi bi-search"></i>
+        </div>
+    </form>
+</div>
+<div class="accordion" id="accordion">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="categories">
+            <div
+                    class="btn accordion-button"
+                    type="button" data-bs-toggle="collapse"
+                    data-bs-target="#categories-coll"
+                    aria-expanded="true"
+                    aria-controls="categories-coll"
+                    onclick="changeCollapse('categories-coll-1')"
+            >
+                CATEGORIES
+            </div>
+        </h2>
+        <div
+                id="categories-coll-1"
+                class="show collapse"
+                aria-labelledby="categories"
+        >
+            <div class="list-item">
+                <ul style="list-style: none; text-align: left; margin-left: -10px">
+                    <li>
+                        <a class="text-decoration-none text-dark" href="/shop/category?value=ArtsPhotography" id="ArtsPhotography">Arts & Photography</a>
+                    </li>
+                    <li>
+                        <a class="text-decoration-none text-dark" href="/shop/category?value=FoodDrink" id="F&D">Food & Drink</a>
+                    </li>
+                    <li>
+                        <a class="text-decoration-none text-dark" href="/shop/category?value=Romance" id="Romance">Romance</a>
+                    </li>
+                    <li>
+                        <a class="text-decoration-none text-dark" href="/shop/category?value=Health" id="Health">Health</a>
+                    </li>
+                    <li>
+                        <a  class="text-decoration-none text-dark" href="/shop/category?value=Biography" id="Biography">Biography</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="filterPrice">
+            <div
+                    class="btn accordion-button"
+                    type="button" data-bs-toggle="collapse"
+                    data-bs-target="#filterPrice-coll"
+                    aria-expanded="true"
+                    aria-controls="filterPrice-coll"
+                    onclick="changeCollapse('filterPrice-coll-1')"
+            >
+                FILTER PRICE
+            </div>
+        </h2>
+        <div
+                id="filterPrice-coll-1"
+                class="collapse show"
+                aria-labelledby="filterPrice"
+        >
+            <div class="list-item">
+                <ul style="list-style: none; text-align: left; margin-left: -10px">
+                    <li>
+                        <a class="text-decoration-none text-dark" href="/shop/price?value=0from50" id="0from50">$00 - $50</a>
+                    </li>
+                    <li>
+                        <a class="text-decoration-none text-dark" href="/shop/price?value=50from100" id="50from100">$50 - $100</a>
+                    </li>
+                    <li>
+                        <a class="text-decoration-none text-dark" href="/shop/price?value=100from150" id="100from150">$100 - $150</a>
+                    </li>
+                    <li>
+                        <a class="text-decoration-none text-dark" href="/shop/price?value=150from200" id="150from200">$150 - $200</a>
+                    </li>
+                    <li>
+                        <a class="text-decoration-none text-dark" href="/shop/price?value=200from10000" id="200from10000">> $200</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

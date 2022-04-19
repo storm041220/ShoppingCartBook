@@ -1,0 +1,99 @@
+{{> header}}
+<div class="container product-detail">
+    <div class="row">
+        <div class="col-12 col-md-5 col-lg-5">
+            <div class="text-center">
+                <img  class="image-product-detail" src="{{product.image}}" alt="">
+            </div>
+        </div>
+        <div class="col-12 col-md-7 col-lg-7 product-detail-content">
+            <div>
+                <p class="h2">{{product.name}}</p>
+                <p>By (author) {{product.manufacturer}}</p>
+                <p class="h4 content">{{product.unitStock}} {{product.price}}</p>
+                <div class="wrapper content">
+                    <span class="minus">-</span>
+                    <span class="num">1</span>
+                    <span class="plus">+</span>
+                </div>
+                <form id="form-add-cart" action="/cart" method="post">
+                    <input class="input-add-to-cart" type="text" name="product_id" id="product_id">
+                    <input class="input-add-to-cart" type="text" name="quantity" id="quantity">
+                    <div class="btn btn-dark btn-add-cart content" type="button" onclick="addToCart({{product._id}})">
+                        Add To Cart
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<hr style="color: grey"/>
+<div class="text-center">
+    <nav class="">
+        <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+            <div class="btn nav-link-featured" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Description</div>
+            <div class="btn nav-link-featured" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Review</div>
+        </div>
+    </nav>
+</div>
+   <div class="container">
+       <div class="tab-content" id="nav-tabContent">
+           <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+               {{product.description}}
+           </div>
+           <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+               <p class="h6" style="margin-top: 30px; margin-bottom: 60px">All review of customer</p>
+               {{#each listFeedback}}
+                   <div class="feed-back">
+                       <p class="h6">
+                           {{title}}
+                       </p>
+                       <p class="feedback-detail">
+                           {{detail}}
+                       </p>
+                       <p style="color: #7f7f83">{{created_at}}</p>
+                   </div>
+               {{/each}}
+
+               <form action="/product-detail/{{product._id}}" method="post" class="form-feedback" id="formFeedback">
+                   <p class="h5">Write a Review</p>
+                   <div class="mb-3">
+                       <label for="title" class="form-label h6">Add a title</label>
+                       <input name="title" type="text" class="form-control" id="title" placeholder="3000 characters remaining">
+                       <span class="text-danger" id="err-title-feedback"></span>
+                   </div>
+                   <div class="mb-3">
+                       <label for="detail" class="form-label h6">Details please! Your review helps other shoppers.</label>
+                       <textarea name="detail" class="form-control" id="detail" rows="6"></textarea>
+                       <span class="text-danger" id="err-detail-feedback"></span>
+                   </div>
+                   <div class="btn btn-dark" type="button" style="margin-top: 20px; width: 200px" onclick="sendFeedback()">Send</div>
+               </form>
+           </div>
+       </div>
+   </div>
+{{> footer}}
+<!-- Modal -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-modal" style="display: none">
+    Launch demo modal
+</button>
+<!-- Modal -->
+{{#if isModal}}
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {{isModal}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/if}}

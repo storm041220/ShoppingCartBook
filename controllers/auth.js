@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const cookie = require('js-cookie');
 const jwt = require('jsonwebtoken');
 const config = require('../config');
-const {Users, Customers, Authorities} = require('../models');
+const {Users, Customers, Authorities, Cart} = require('../models');
 const getRegister = async (req, res) => {
     res.render('register',{
         style: 'register.css',
@@ -29,6 +29,12 @@ const createUser = async (req, res) => {
             authorities: 'customer'
         })
         await authorities.save();
+        //create cart of customer
+        const cartUser = new Cart({
+            totalPrice: 0
+        });
+        const cart = await cartUser.save();
+        //create customer
         const newCustomer = new Customers({
             firstName: first_name,
             lastName: last_name,
@@ -36,9 +42,11 @@ const createUser = async (req, res) => {
             shippingAddressId: null,
             billingAddressId: null,
             userEmailId: email,
-            cartId: null
+            cartId: cart._id
         })
         await newCustomer.save();
+        const token = signToken(email,'customer');
+        res.cookie('token', token);
         res.redirect('/home');
     }catch (err) {
         console.log(err);
@@ -87,9 +95,62 @@ const postLogin = async (req, res) => {
 const signToken = (email,role) =>{
     return jwt.sign({email: email, role: role},config.AUTH_TOKEN_SECRET.TOKEN);
 }
+const checkRoleAdmin = (req, res, next) => {
+    try {
+        const cookie = req.cookies.token;
+        const user = jwt.verify(cookie,config.AUTH_TOKEN_SECRET.TOKEN);
+        if (user.role === "admin"){
+            return next();
+        }else {
+            return res.redirect('/home');
+        }
+    }catch (err) {
+        console.log(err);
+    }
+}
+const checkIsLogin = (req, res, next) =>{
+    try {
+        const cookie = req.cookies.token;
+        if (!cookie){
+            return next();
+        }else {
+            const user = jwt.verify(cookie,config.AUTH_TOKEN_SECRET.TOKEN);
+            if (user.role === "admin"){
+                return res.redirect('/admin');
+            }else {
+                return res.redirect('/home');
+            }
+        }
+    }catch (err) {
+        console.log(err);
+    }
+}
+const isAuthenticated = (req, res, next) =>{
+    try {
+        const cookie = req.cookies.token;
+        if (!cookie){
+            req.user = 0;
+            return next();
+        }else {
+            const user = jwt.verify(cookie,config.AUTH_TOKEN_SECRET.TOKEN);
+            req.user = user;
+            return next();
+        }
+    }catch (err) {
+        console.log(err);
+    }
+}
+const logoutUser = (req, res) =>{
+    res.clearCookie("token");
+    res.redirect('/home');
+}
 module.exports = {
     getRegister,
     createUser,
     getLoginPage,
-    postLogin
+    postLogin,
+    checkRoleAdmin,
+    checkIsLogin,
+    isAuthenticated,
+    logoutUser
 }

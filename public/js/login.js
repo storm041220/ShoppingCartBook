@@ -7,7 +7,6 @@ function submitLogin() {
     }else {
         document.getElementById('err-email').innerHTML = "";
     }
-
     if (password.length<8){
         document.getElementById('err-password').innerHTML = "password is not valid";
         return false;

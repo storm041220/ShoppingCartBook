@@ -1,0 +1,39 @@
+{{> header}}
+<div style="background-color: #fff6f6;height: 100%">
+    <div class="container order">
+        <div class="text-center">
+            <p class="h3 mt-5">Order Received</p>
+        </div>
+        <div class="list-order">
+            {{#each listOrder}}
+                <div class="item-order">
+                    <div class="number-order h5">
+                        Order number: {{_id}}
+                    </div>
+                    <div class="detail-order">
+                        {{#each orderDetail}}
+                            <div class="item-detail">
+                                <div class="product">
+                                    <img src="{{product.image}}" alt="image">
+                                    <div class="title-product-order">
+                                        <p class="h4">{{product.name}}</p>
+                                        <p class="">{{product.manufacturer}}</p>
+                                        <p>X {{quantity}}</p>
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    $ {{price}}
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                    <div style="display: flex;justify-content: space-between">
+                        <p></p>
+                        <p class="h4">Total: <sm class="text-danger">$ {{totalPrice}}</sm></p>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{> footer}}
