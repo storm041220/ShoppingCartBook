@@ -41,7 +41,9 @@ module.exports = {
       });
       await product.save();
       res.redirect("mananger-book");
-    } catch (error) {}
+    } catch (error) {
+      res.json(error)
+    }
   },
   updateBook: async function (req, res) {
     await Products.updateOne({ _id: req.body._id }, req.body);
