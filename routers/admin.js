@@ -11,6 +11,8 @@ router.post("/store", upload.single('image'), controller.storeBook);
 
 router.post("/delete-book", controller.deleteBook);
 
+router.post("/update-book",  controller.updateBook);
+
 router.get("/mananger-customer-order", controller.getManageOrder);
 
 router.get("/feedback", controller.getFeedback);

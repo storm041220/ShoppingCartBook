@@ -40,11 +40,15 @@ module.exports = {
         quantity: req.body.quantity,
       });
       await product.save();
-      res.redirect('mananger-book');
+      res.redirect("mananger-book");
     } catch (error) {}
+  },
+  updateBook: async function (req, res) {
+    await Products.updateOne({ _id: req.body._id }, req.body);
+    res.redirect("mananger-book");
   },
   deleteBook: async function (req, res) {
     await Products.findByIdAndDelete(req.body.id_detele);
-    res.redirect('mananger-book');
+    res.redirect("mananger-book");
   },
 };

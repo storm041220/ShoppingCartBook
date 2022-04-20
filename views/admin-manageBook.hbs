@@ -98,6 +98,9 @@
                 <button
                   style="margin-left:10px"
                   class="btn btn-warning"
+                  data-toggle="modal"
+                  data-target="#edit_product{{_id}}"
+                  data-whatever="@fat"
                 >Edit</button>
                 <form action="/admin/delete-book" method="post">
                   <input type="hidden" name="id_detele" value="{{_id}}" />
@@ -109,6 +112,140 @@
                 </form>
               </td>
             </tr>
+            <div
+              class="modal fade"
+              id="edit_product{{_id}}"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit
+                      {{name}}</h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="/admin/update-book" method="post">
+                      <input type="hidden" name="_id" value="{{_id}}" />
+                      <div class="form-group">
+                        <label
+                          for="recipient-name"
+                          class="col-form-label"
+                        >Name:</label>
+                        <input
+                          type="text"
+                          name="name"
+                          class="form-control"
+                          id="recipient-name"
+                          value="{{name}}"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label
+                          for="recipient-name"
+                          class="col-form-label"
+                        >Category:</label>
+                        <input
+                          type="text"
+                          name="category"
+                          class="form-control"
+                          id="recipient-name"
+                          value="{{category}}"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label
+                          for="recipient-name"
+                          class="col-form-label"
+                        >Author:</label>
+                        <input
+                          type="text"
+                          name="manufacturer"
+                          class="form-control"
+                          id="recipient-name"
+                          value="{{manufacturer}}"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <div class="form-row">
+                          <div class="col">
+                            <select
+                              id="inputState"
+                              name="status"
+                              class="form-control"
+                            >
+                              <option selected>{{status}}</option>
+                              <option>featured</option>
+                              <option>sale</option>
+                              <option>most-view</option>
+                            </select>
+                          </div>
+                          <div class="col">
+                            <input
+                              type="text"
+                              name="quantity"
+                              class="form-control"
+                              value="{{quantity}}"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="form-row">
+                          <div class="col">
+                            <input
+                              type="text"
+                              name="unitStock"
+                              class="form-control"
+                              value="{{unitStock}}"
+                            />
+                          </div>
+                          <div class="col">
+                            <input
+                              type="text"
+                              name="price"
+                              class="form-control"
+                              value="{{price}}"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label
+                          for="message-text"
+                          class="col-form-label"
+                        >Desciprtion:</label>
+                        <textarea
+                          class="form-control"
+                          name="description"
+                          id="message-text"
+                        >{{description}}</textarea>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-dismiss="modal"
+                        >Close</button>
+                        <button
+                          type="submit"
+                          class="btn btn-primary"
+                        >Save</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
           {{/each}}
         </tbody>
       </table>
@@ -118,7 +255,7 @@
           type="button"
           class="btn btn-outline-success"
           data-toggle="modal"
-          data-target="#exampleModal"
+          data-target="#create_new_product"
           data-whatever="@fat"
         >Create New Book</button>
 
@@ -127,7 +264,7 @@
 
     <div
       class="modal fade"
-      id="exampleModal"
+      id="create_new_product"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -135,7 +272,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Create new Product</h5>
             <button
               type="button"
               class="close"
@@ -188,10 +325,9 @@
                 <div class="form-row">
                   <div class="col">
                     <select id="inputState" name="status" class="form-control">
-                      <option selected>Status</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
+                      <option>featured</option>
+                      <option>sale</option>
+                      <option>most-view</option>
                     </select>
                   </div>
                   <div class="col">
