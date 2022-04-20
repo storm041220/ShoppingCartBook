@@ -7,14 +7,19 @@
         <div class="list-order">
             {{#each listOrder}}
                 <div class="item-order">
-                    <div class="number-order h5">
-                        Order number: {{_id}}
+                    <div class="item-order-header">
+                        <div class="number-order h5">
+                            Order number: {{_id}}
+                        </div>
+                        <div class="status">
+                            Status: {{status}}
+                        </div>
                     </div>
                     <div class="detail-order">
                         {{#each orderDetail}}
                             <div class="item-detail">
                                 <div class="product">
-                                    <img src="{{product.image}}" alt="image">
+                                    <img class="image-o-p" src="{{product.image}}" alt="image">
                                     <div class="title-product-order">
                                         <p class="h4">{{product.name}}</p>
                                         <p class="">{{product.manufacturer}}</p>

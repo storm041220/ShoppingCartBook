@@ -20,11 +20,16 @@
                 <li class="nav-item {{active_cart}}">
                     <a class="nav-link" href="/cart">Cart</a>
                 </li>
+                <li class="nav-item {{active_order}}">
+                    <a class="nav-link" href="/order">Order</a>
+                </li>
             </ul>
             {{#if username}}
                 <div class="d-flex isLogin">
-                    <img  class="me-2 image-avatar" src="https://res.cloudinary.com/awi-ln/image/upload/v1649823573/user_p0t1zb.png" alt="avatar">
-                    <p  class="me-5" style="margin: auto 0">{{username}}</p>
+                    <a href="" class="text-decoration-none d-flex text-dark">
+                        <img  class="me-2 image-avatar" src="https://res.cloudinary.com/awi-ln/image/upload/v1649823573/user_p0t1zb.png" alt="avatar">
+                        <p  class="me-5" style="margin: auto 0">{{username}}</p>
+                    </a>
                     <form action="/auth/logout" method="get" style="margin: auto 0">
                         <input class="btn text-danger" type="submit" value="Logout"/>
                     </form>

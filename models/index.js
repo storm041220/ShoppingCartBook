@@ -5,7 +5,9 @@ const product = require('./products');
 const feedbacks = require('./feedbacks');
 const cart = require('./cart');
 const cartItem = require('./cartItem');
-const shippingaddress = require('./shippingAddress')
+const shippingaddress = require('./shippingAddress');
+const order = require('./order');
+const order_detail = require('./order-detail');
 module.exports= {
     ...users,
     ...customers,
@@ -14,5 +16,7 @@ module.exports= {
     ...feedbacks,
     ...cart,
     ...cartItem,
-    ...shippingaddress
+    ...shippingaddress,
+    ...order,
+    ...order_detail
 }

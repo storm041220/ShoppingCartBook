@@ -81,3 +81,16 @@ function changeShipping(ship){
 document.getElementById('sub-order-price').innerHTML = document.getElementById('total-price').innerHTML;
 document.getElementById('total-order').innerHTML = document.getElementById('total-price').innerHTML;
 document.getElementById('total-order-final').innerHTML = document.getElementById('total-price').innerHTML;
+
+function orderProduct() {
+    let arr_quantity = [];
+    let array = document.getElementById('array');
+    let totalPrice = document.getElementById('totalPrice');
+    let quantities = document.getElementsByName('quantity-o-p');
+    quantities.forEach((item) => {
+        arr_quantity.push(Number(item.innerHTML));
+    })
+    array.value = arr_quantity;
+    totalPrice.value = document.getElementById('total-order-final').innerHTML;
+    document.getElementById('form-order').submit();
+}

@@ -183,7 +183,7 @@
                                 <p>({{manufacturer}})</p>
                             </div>
                             <div class="quantity-product">
-                                X<sm id="quantity-{{id}}">{{quantity}} </sm>
+                                X<sm id="quantity-{{id}}" name="quantity-o-p">{{quantity}} </sm>
                             </div>
                         </div>
                         <div>
@@ -232,9 +232,13 @@
                 <p>City: {{address.city}}</p>
                 <p>Address: {{address.address}}</p>
             </div>
+            <form action="/order" method="post" style="display: none" id="form-order">
+                <input type="text" id="array" name="array">
+                <input type="text" id="totalPrice" name="totalPrice">
+            </form>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" onclick="">Order</button>
+                <button type="button" class="btn btn-primary" onclick="orderProduct()">Order</button>
             </div>
         </div>
     </div>
