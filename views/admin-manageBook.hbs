@@ -150,17 +150,19 @@
                         />
                       </div>
                       <div class="form-group">
-                        <label
-                          for="recipient-name"
-                          class="col-form-label"
-                        >Category:</label>
-                        <input
-                          type="text"
-                          name="category"
+                        <label for="exampleFormControlSelect2">Category</label>
+                        <select
+                          multiple
                           class="form-control"
-                          id="recipient-name"
-                          value="{{category}}"
-                        />
+                          name="category"
+                          id="exampleFormControlSelect2"
+                        >
+                          <option value="ArtsPhotography">Arts & Photography</option>
+                          <option value="FoodDrink">Food & Drink</option>
+                          <option value="Romance">Romance</option>
+                          <option value="Health">Health</option>
+                          <option value="Biography">Biography</option>
+                        </select>
                       </div>
                       <div class="form-group">
                         <label
@@ -183,7 +185,6 @@
                               name="status"
                               class="form-control"
                             >
-                              <option selected>{{status}}</option>
                               <option>featured</option>
                               <option>sale</option>
                               <option>most-view</option>
@@ -298,16 +299,19 @@
                 />
               </div>
               <div class="form-group">
-                <label
-                  for="recipient-name"
-                  class="col-form-label"
-                >Category:</label>
-                <input
-                  type="text"
-                  name="category"
+                <label for="exampleFormControlSelect2">Category</label>
+                <select
+                  multiple
                   class="form-control"
-                  id="recipient-name"
-                />
+                  name="category"
+                  id="exampleFormControlSelect2"
+                >
+                  <option value="ArtsPhotography">Arts & Photography</option>
+                  <option value="FoodDrink">Food & Drink</option>
+                  <option value="Romance">Romance</option>
+                  <option value="Health">Health</option>
+                  <option value="Biography">Biography</option>
+                </select>
               </div>
               <div class="form-group">
                 <label
@@ -368,7 +372,8 @@
                     class="custom-file-input"
                     id="customFile"
                   />
-                  <label class="custom-file-label" for="customFile">Choose file</label>
+                  <label class="custom-file-label" for="customFile">Choose
+                    picture</label>
                 </div>
               </div>
               <div class="form-group">
