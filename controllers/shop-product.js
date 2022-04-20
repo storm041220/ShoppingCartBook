@@ -12,8 +12,24 @@ const getProductOfShop = async (req, res) => {
             username = undefined;
         }
         //Get list product
+        let default_sort = '';
+        let low_sort = '';
+        let high_sort = ''
         let listProduct = [];
-        const products = await Products.find();
+        const {sort} = req.query;
+        let products;
+        if (sort){
+            if (sort === 'lowtohigh'){
+                products = await Products.find().sort([['price', 1]]);
+                low_sort='selected';
+            }else {
+                products = await Products.find().sort([['price', -1]]);
+                high_sort = 'selected';
+            }
+        }else {
+            products = await Products.find();
+            default_sort = 'selected';
+        }
         for (let item of products){
             listProduct.push(formatProduct(item));
         }
@@ -24,7 +40,10 @@ const getProductOfShop = async (req, res) => {
                 active_shop:'active-nav',
                 listProduct: listProduct,
                 js: 'shop.js',
-                count: listProduct.length
+                count: listProduct.length,
+                default_sort: default_sort,
+                low_sort: low_sort,
+                high_sort: high_sort
             });
     }catch (err) {
         console.log(err);
