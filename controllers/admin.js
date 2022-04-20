@@ -43,4 +43,8 @@ module.exports = {
       res.redirect('mananger-book');
     } catch (error) {}
   },
+  deleteBook: async function (req, res) {
+    await Products.findByIdAndDelete(req.body.id_detele);
+    res.redirect('mananger-book');
+  },
 };
