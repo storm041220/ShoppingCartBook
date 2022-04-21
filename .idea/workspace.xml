@@ -3,10 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="4c21806e-6a59-427c-80de-518ca8cdc5d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/product-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/product-detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/feedbacks.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/feedbacks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/product-detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/product-detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/cart.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/cart.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/login.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/login.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/product-detail.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/product-detail.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/register.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/register.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +81,7 @@
       <workItem from="1650379079764" duration="1836000" />
       <workItem from="1650439630652" duration="14110000" />
       <workItem from="1650465295877" duration="5136000" />
-      <workItem from="1650531831276" duration="2621000" />
+      <workItem from="1650531831276" duration="6385000" />
     </task>
     <servers />
   </component>

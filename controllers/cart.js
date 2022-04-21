@@ -55,7 +55,6 @@ const addProductToCart = async (req, res, next) => {
     try {
         const user = req.user;
         const {product_id, quantity} = req.body;
-        console.log(product_id);
         if (user !== 0){
             const customer = await Customers.findOne({userEmailId: user.email});
             const product = await Products.findOne({_id: Number(product_id)});
@@ -105,35 +104,19 @@ const changeAddress = async (req, res) =>{
         const user = req.user;
         const customer = await Customers.findOne({userEmailId: user.email});
         const {country, state, city, address} = req.body;
-        const addressShip = await ShippingAddress.findOne({_id: customer.shippingAddressId});
-        if (addressShip){
-            const newAddress = {
-                country,
-                state,
-                city,
-                address
+        const newAddress = new ShippingAddress({
+            country,
+            state,
+            city,
+            address
+        });
+        const shipAddress = await newAddress.save();
+        await Customers.updateOne(
+            {_id: customer._id},
+            {
+                $set: {shippingAddressId: shipAddress._id}
             }
-            await ShippingAddress.updateOne(
-                {_id: addressShip._id},
-                {
-                    $set: (newAddress)
-                }
-            )
-        }else {
-            const newAddress = new ShippingAddress({
-                country,
-                state,
-                city,
-                address
-            });
-           const shipAddress = await newAddress.save();
-           await Customers.updateOne(
-               {_id: customer._id},
-               {
-                   $set: {shippingAddressId: shipAddress._id}
-               }
-           )
-        }
+        )
         res.redirect('/cart');
     }catch (err) {
         console.log(err);

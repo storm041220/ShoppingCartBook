@@ -230,7 +230,7 @@
                 <p>Country: {{address.country}}</p>
                 <p>State: {{address.state}}</p>
                 <p>City: {{address.city}}</p>
-                <p>Address: {{address.address}}</p>
+                <p>Address: <sm id="address-order">{{address.address}}</sm></p>
             </div>
             <form action="/order" method="post" style="display: none" id="form-order">
                 <input type="text" id="array" name="array">
@@ -239,6 +239,25 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-primary" onclick="orderProduct()">Order</button>
+            </div>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-modal-err-address" style="display: none">
+    Launch demo modal
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                You do not enter an address. Please enter your address before ordering
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
