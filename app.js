@@ -27,6 +27,7 @@ const logoutRouter = require('./routers/logout');
 const orderRouter = require('./routers/order');
 
 app.get('/health', (req, res) => res.send('Book Shop'));
+app.get('/', (req, res) => res.redirect('/home'));
 app.use('/', homeRouter);
 app.use('/auth/register',registerRouter);
 app.use('/auth/login',loginRouter);
