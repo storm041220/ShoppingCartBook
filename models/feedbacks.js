@@ -17,10 +17,15 @@ const feedbackSchema = new mongoose.Schema({
     },
     product_id: {
         type: String
+    },
+    role: {
+        type: String
+    },
+    feedback_id: {
+        type: Number
     }
 });
 autoIncrement.initialize(mongoose.connection);
-
 feedbackSchema.plugin(autoIncrement.plugin, 'feedbacks');
 
 const Feedbacks = mongoose.model('Feedbacks', feedbackSchema, 'feedbacks');

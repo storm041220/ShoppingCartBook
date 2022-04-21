@@ -46,15 +46,25 @@
                {{#each listFeedback}}
                    <div class="feed-back">
                        <p class="h6">
-                           {{title}}
+                           {{title}}({{emailId}})
                        </p>
                        <p class="feedback-detail">
                            {{detail}}
                        </p>
                        <p style="color: #7f7f83">{{created_at}}</p>
+                       {{#if feedback_admin}}
+                           <div class="admin-feedback">
+                               <p class="h6">
+                                   {{feedback_admin.title}}(Owner)
+                               </p>
+                               <p class="feedback-detail">
+                                   {{feedback_admin.detail}}
+                               </p>
+                               <p style="color: #7f7f83">{{feedback_admin.created_at}}</p>
+                           </div>
+                       {{/if}}
                    </div>
                {{/each}}
-
                <form action="/product-detail/{{product._id}}" method="post" class="form-feedback" id="formFeedback">
                    <p class="h5">Write a Review</p>
                    <div class="mb-3">
