@@ -79,8 +79,8 @@ function changeShipping(ship){
     document.getElementById('total-order-final').innerHTML = total_order.innerHTML;
 }
 document.getElementById('sub-order-price').innerHTML = document.getElementById('total-price').innerHTML;
-document.getElementById('total-order').innerHTML = document.getElementById('total-price').innerHTML;
-document.getElementById('total-order-final').innerHTML = document.getElementById('total-price').innerHTML;
+document.getElementById('total-order').innerHTML = document.getElementById('total-price-order').innerHTML;
+document.getElementById('total-order-final').innerHTML = document.getElementById('total-price-order').innerHTML;
 
 function orderProduct() {
     if (document.getElementById('address-order').innerHTML !== ""){
