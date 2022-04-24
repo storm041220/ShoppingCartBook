@@ -1,9 +1,17 @@
-const { Products } = require("../models");
+const {
+  Cart,
+  CartItem,
+  ShippingAddress,
+  Products,
+  Customers,
+  Order,
+  OrderDetail,
+} = require("../models");
 const cloudinary = require("../utils/cloudinary");
 const { formatProduct } = require("./product");
 module.exports = {
   getAdminPage: async function (req, res) {
-    res.render("admin-manageOrder");
+    res.render("admin-manageBook");
   },
 
   getManageBook: async function (req, res) {
@@ -18,7 +26,41 @@ module.exports = {
   },
 
   getManageOrder: async function (req, res) {
-    res.render("admin-manageOrder");
+    let listOrder = [];
+    const orders = await Order.find();
+    for (let item of orders) {
+      const user = await Customers.findOne({ _id: item.customer_id });
+      const address = await ShippingAddress.findOne({
+        _id: item.shippingAddress_id,
+      });
+      let listDetail = [];
+      const orderDetail = await OrderDetail.find({ order_id: item._id });
+      for (let detail of orderDetail) {
+        const product = await Products.findOne({ _id: detail.product_id });
+        listDetail.push({
+          name: product.name,
+          image: product.image,
+          quantity: detail.quantity,
+          manufacturer: product.manufacturer,
+        });
+      }
+      listOrder.push({
+        id: item._id,
+        userName: user.firstName + " " + user.lastName,
+        shippingAddress:
+          address.address +
+          ", " +
+          address.country +
+          ", " +
+          address.state +
+          ", " +
+          address.city,
+        totalPrice: item.totalPrice,
+        products: listDetail,
+        status: item.status,
+      });
+    }
+    res.render("admin-manageOrder", { orders: listOrder });
   },
 
   getFeedback: async function (req, res) {
@@ -42,7 +84,7 @@ module.exports = {
       await product.save();
       res.redirect("mananger-book");
     } catch (error) {
-      res.json(error)
+      res.json(error);
     }
   },
   updateBook: async function (req, res) {
@@ -53,4 +95,15 @@ module.exports = {
     await Products.findByIdAndDelete(req.body.id_detele);
     res.redirect("mananger-book");
   },
+
+  processOrder: async function(req, res){
+    await Order.updateOne({ _id: req.body.id }, {status: req.body.status});
+    res.redirect("mananger-customer-order");
+  },
+
+  deleteOrder: async function(req, res){
+    await Order.findByIdAndDelete(req.body.id_detele);
+    await OrderDetail.deleteMany({order_id: req.body.id_detele });
+    res.redirect("mananger-customer-order");
+  }
 };

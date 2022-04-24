@@ -66,60 +66,100 @@
   <body>
     <div class="container mt-5">
       <div class="row">
-        <div class="col-sm">
-          <div class="card" style="width: 18rem;">
-            <img
-              style="height:300px"
-              src="https://m.media-amazon.com/images/I/51M2gzuiNuL.jpg"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h5 class="card-title text-center">Doremon</h5>
-              <h3 class="card-title text-center">9999 VND</h3>
-
-            </div>
-            <div class="card-footer text-muted">
-              2 days ago
-            </div>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div class="card" style="width: 18rem;">
-            <img
-              style="height:300px"
-              src="https://product.hstatic.net/1000217031/product/dac_nhan_tam_1ad146f4adc7443ea98c0636f6cba476.jpg"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h5 class="card-title text-center">Đắc Nhân Tâm</h5>
-              <h3 class="card-title text-center">9999 VND</h3>
-
-            </div>
-            <div class="card-footer text-muted">
-              2 days ago
+        {{#each orders}}
+          <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Customer: {{userName}} </h5>
+                <p class="card-text">Addres:{{shippingAddress}} </p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Total price: {{totalPrice}}$</li>
+                <li class="list-group-item">Status: {{status}}</li>
+              </ul>
+              <div class="card-body">
+                <button
+                  type="button"
+                  class="card-link btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#exampleModal_{{id}}"
+                >
+                  Detail products
+                </button>
+              <form action="/admin/delete-order" method="post">
+              <input type="hidden" name="id_detele" value="{{id}}">
+                  <button type="submit" class="card-link btn btn-danger">Delete Order</button>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm">
-          <div class="card" style="width: 18rem;">
-            <img
-              style="height:300px"
-              src="https://sachnoi.cc/wp-content/uploads/2021/09/Sach-Noi-Chien-Quoc-Sach-Trong-Kinh-Doanh-Uyen-Si-Quan-audio-book-sachnoi.cc-3.jpg"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h5 class="card-title text-center">Kế Làm Giàu</h5>
-              <h3 class="card-title text-center">9999 VND</h3>
-
-            </div>
-            <div class="card-footer text-muted">
-              2 days ago
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModal_{{id}}"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Order detail</h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Quantity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {{#each products}}
+                        <tr>
+                          <td>{{name}}</td>
+                          <td><img
+                              src="{{image}}"
+                              style="height: 200px;"
+                              class="img-thumbnail"
+                            /></td>
+                          <td>{{quantity}}</td>
+                        </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+                <div class="modal-footer">
+                  <form action="/admin/process-order" method="post">
+                  <input type="hidden" name="id" value="{{id}}">
+                    <input type="radio" id="complete" name="status" value="Complete Order" />
+                  <label for="complete">Complete Order</label><br />
+                  <input type="radio" id="cancel" name="status" value="Cancel Order" />
+                  <label for="cancel">Cancel Order</label><br />
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        {{/each}}
       </div>
     </div>
-
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

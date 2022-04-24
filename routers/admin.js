@@ -15,6 +15,10 @@ router.post("/update-book",  controller.updateBook);
 
 router.get("/mananger-customer-order", controller.getManageOrder);
 
+router.post("/process-order", controller.processOrder);
+
+router.post("/delete-order", controller.deleteOrder);
+
 router.get("/feedback", controller.getFeedback);
 
 module.exports = router;
