@@ -60,3 +60,8 @@ function checkAction() {
     }
 }
 checkAction();
+function sortByPrice() {
+    let select = document.getElementById('sort-price');
+    let option = select.options[select.selectedIndex];
+    window.location.href = "/shop?sort="+option.value;
+}

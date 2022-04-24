@@ -27,3 +27,8 @@
     }
 }
 
+.select-sort{
+    border: none;
+    border-bottom: 1px solid gray;
+    padding-bottom: 6px;
+}

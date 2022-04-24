@@ -10,6 +10,13 @@
                     Showing 1–{{count}} of {{count}} results
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div style="text-align: right">
+                        <select class="select-sort" aria-label="sort by price" onchange="sortByPrice()" id="sort-price">
+                            <option {{default_sort}} value="">Default sorting</option>
+                            <option value="lowtohigh" {{low_sort}}>Sort by price: low to high</option>
+                            <option value="hightolow" {{high_sort}}>Sort by price: high to low</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="list-product">

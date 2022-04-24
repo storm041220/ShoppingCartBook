@@ -17,9 +17,9 @@ const getProductDetail = async (req, res) => {
         const detailProduct = await Products.findOne({_id: product_id});
         const product = formatProduct(detailProduct);
         let listFeedback = [];
-        const feedbacks = await Feedbacks.find({product_id: product_id});
+        const feedbacks = await Feedbacks.find({product_id: product_id, role: "customer"});
         for (let item of feedbacks){
-            listFeedback.push(formatFeedback(item));
+            listFeedback.push(await formatFeedback(item));
         }
         return res.render('product-detail',{
             isModal: isModal,
@@ -46,7 +46,9 @@ const postFeedbacks = async (req, res, next) => {
                 title: title,
                 detail: detail,
                 emailId: user.email,
-                product_id: product_id
+                product_id: product_id,
+                role: 'customer',
+                feedback: null
             });
             await newFeedback.save();
         }else {
@@ -58,14 +60,25 @@ const postFeedbacks = async (req, res, next) => {
         console.log(err);
     }
 }
-const formatFeedback = (feedback) => {
+const formatFeedback = async (feedback) => {
+    const feedbackAdmin = await Feedbacks.findOne({feedback_id: feedback._id});
+    let feedback_admin;
+    if (feedbackAdmin){
+        feedback_admin = {
+            _id: feedbackAdmin._id,
+            title: feedbackAdmin.title,
+            detail: feedbackAdmin.detail,
+            created_at: feedback.created_at.toDateString()
+        }
+    }
     return {
         _id: feedback._id,
         title: feedback.title,
         detail: feedback.detail,
         emailId: feedback.emailId,
         product_id: feedback.product_id,
-        created_at: feedback.created_at.toDateString()
+        created_at: feedback.created_at.toDateString(),
+        feedback_admin: feedback_admin
     }
 }
 module.exports ={
