@@ -70,84 +70,80 @@
           <tr>
             <th scope="col">Name</th>
             <th scope="col">Date</th>
-            <th scope="col">Status</th>
             <th scope="col">Customer's Feedback</th>
             <th scope="col">Feedback</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-              aspernatur eum dolore cum accusantium laudantium doloremque vitae,
-              incidunt molestiae dolorem voluptatem dolor excepturi error in
-              illum voluptas exercitationem nobis ullam!</td>
-            <td><button
-                type="button"
-                class="btn btn-primary"
-                data-toggle="modal"
-                data-target="#exampleModal"
-                data-whatever="@mdo"
-              >Replay Feedback</button></td>
-          </tr>
+          {{#each feedbacks}}
+            <tr>
+              <th scope="row">{{nameUser}}</th>
+              {{!-- <td>{{{dateFormat date "YYYY-MM-DD"}}}</td> --}}
+              <td>{{{date}}}</td>
+              <td><strong>{{title}}</strong>: {{detail}}</td>
+              <td><button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#exampleModal_{{id}}"
+                  data-whatever="@mdo"
+                >Replay Feedback</button></td>
+            </tr>
+
+            <div
+              class="modal fade"
+              id="exampleModal_{{id}}"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Replay
+                      Feedback</h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <form action="/admin/rep-feedback" method="post">
+                  <input type="hidden" name="product_id" value="{{product_id}}">
+                  <input type="hidden" name="role" value="admin">
+                  <input type="hidden" name="feedback_id" value="{{id}}">
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label
+                          for="message-text"
+                          class="col-form-label"
+                        >Message:</label>
+                        <textarea
+                          class="form-control"
+                          id="message-text"
+                          name="detail"
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                      >Close</button>
+                      <button type="submit" class="btn btn-primary">Send
+                        Feedback</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          {{/each}}
         </tbody>
       </table>
-    </div>
-
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Replay Feedback</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label
-                  for="recipient-name"
-                  class="col-form-label"
-                >Feedback:</label>
-                <textarea class="form-control" id="message-text" disabled>Lorem
-                  ipsum dolor sit amet consectetur adipisicing elit. Cum sequi
-                  excepturi officiis atque odit provident quis repudiandae
-                  pariatur amet dolore. Ab quasi omnis illo quidem tenetur, quia
-                  at! Ipsam, officia?</textarea>
-              </div>
-              <div class="form-group">
-                <label
-                  for="message-text"
-                  class="col-form-label"
-                >Message:</label>
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >Close</button>
-            <button type="button" class="btn btn-primary">Send Feedback</button>
-          </div>
-        </div>
-      </div>
     </div>
 
   </body>

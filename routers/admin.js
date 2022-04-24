@@ -21,4 +21,6 @@ router.post("/delete-order", controller.deleteOrder);
 
 router.get("/feedback", controller.getFeedback);
 
+router.post("/rep-feedback", controller.storeFeedback);
+
 module.exports = router;

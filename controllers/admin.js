@@ -1,11 +1,10 @@
 const {
-  Cart,
-  CartItem,
   ShippingAddress,
   Products,
   Customers,
   Order,
   OrderDetail,
+  Feedbacks
 } = require("../models");
 const cloudinary = require("../utils/cloudinary");
 const { formatProduct } = require("./product");
@@ -64,7 +63,24 @@ module.exports = {
   },
 
   getFeedback: async function (req, res) {
-    res.render("admin-feedback");
+    let listFeedBack = [];
+    const feedbacks = await Feedbacks.find();
+    for(let item of feedbacks){
+      const user = await Customers.findOne({ userEmailId: item.emailId});
+      if(item.emailId !== 'admin@gmail.com'){
+        listFeedBack.push({
+          id: item._id,
+          nameUser: user.firstName + " " + user.lastName,
+          title: item.title,
+          detail: item.detail,
+          date: item.created_at.toDateString(),
+          product_id: item.product_id,
+          mail: item.emailId,
+          role: item.role
+        });
+      }
+    }
+    res.render("admin-feedback", {feedbacks: listFeedBack});
   },
 
   storeBook: async function (req, res) {
@@ -105,5 +121,21 @@ module.exports = {
     await Order.findByIdAndDelete(req.body.id_detele);
     await OrderDetail.deleteMany({order_id: req.body.id_detele });
     res.redirect("mananger-customer-order");
+  },
+
+  storeFeedback: async function(req, res){
+    try {
+      let repFeedback = new Feedbacks({
+        product_id: req.body.product_id,
+        role: req.body.role,
+        emailId: 'admin@gmail.com',
+        feedback_id: req.body.feedback_id,
+        detail: req.body.detail,
+      });
+      await repFeedback.save();
+      res.redirect("feedback");
+    } catch (error) {
+      res.json(error);
+    }
   }
 };
