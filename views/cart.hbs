@@ -44,9 +44,11 @@
                                     <p class="content" id="total-{{id}}">{{total}}</p>
                                 </td>
                                 <td>
-                                    <div class="text-center mt-5">
-                                        <i style="font-size: 30px" class="bi bi-x"></i>
-                                    </div>
+                                    <form action="/cart/delete/{{id}}" id="delete-product" method="post">
+                                        <div class="text-center mt-5" onclick="deleteProduct()">
+                                            <i style="font-size: 30px" class="bi bi-x"></i>
+                                        </div>
+                                    </form>
                                 </td>
                             </tr>
                         {{/each}}

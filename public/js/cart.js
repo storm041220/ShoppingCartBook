@@ -99,3 +99,6 @@ function orderProduct() {
         return false;
     }
 }
+function deleteProduct(id) {
+    document.getElementById('delete-product').submit();
+}

@@ -122,8 +122,31 @@ const changeAddress = async (req, res) =>{
         console.log(err);
     }
 }
+const deleteProductOfCart = async (req, res, next) => {
+    try{
+        const user = req.user;
+        const {id} = req.params;
+        const customer = await Customers.findOne({userEmailId: user.email});
+        const cartItem = await CartItem.findOne({_id: id});
+        const cart = await Cart.findOne({_id: customer.cartId});
+        let total = cart.totalPrice;
+        let price = cartItem.price
+        const newTotal = total - price;
+        await Cart.updateOne(
+            {_id: customer.cartId},
+            {
+                $set: ({totalPrice: newTotal})
+            }
+        )
+        await cartItem.remove();
+        return res.redirect('/cart');
+    }catch (err) {
+        console.log(err);
+    }
+}
 module.exports = {
     getCartPage,
     addProductToCart,
-    changeAddress
+    changeAddress,
+    deleteProductOfCart
 }
