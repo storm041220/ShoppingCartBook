@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4c21806e-6a59-427c-80de-518ca8cdc5d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +35,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tesla-project/tesla-service" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -80,6 +81,9 @@
       <workItem from="1650531831276" duration="8334000" />
       <workItem from="1650549493535" duration="236000" />
       <workItem from="1650616667874" duration="217000" />
+      <workItem from="1650867803326" duration="296000" />
+      <workItem from="1650868464880" duration="640000" />
+      <workItem from="1650874101209" duration="734000" />
     </task>
     <servers />
   </component>
