@@ -47,13 +47,13 @@ module.exports = {
         id: item._id,
         userName: user.firstName + " " + user.lastName,
         shippingAddress:
-          address.address +
-          ", " +
-          address.country +
-          ", " +
-          address.state +
-          ", " +
-          address.city,
+            address.address +
+            ", " +
+            address.country +
+            ", " +
+            address.state +
+            ", " +
+            address.city,
         totalPrice: item.totalPrice,
         products: listDetail,
         status: item.status,
