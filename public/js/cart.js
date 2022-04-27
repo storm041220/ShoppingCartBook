@@ -70,6 +70,8 @@ function updateTotal(id,type) {
         total.innerHTML = String(Number(total.innerHTML) - Number(price.innerHTML.slice(2)));
     }
     document.getElementById('sub-order-price').innerHTML = total.innerHTML;
+    document.getElementById('total-price-order').innerHTML = total.innerHTML;
+    document.getElementById('free').checked = true;
 }
 function changeShipping(ship){
     let total_order = document.getElementById('total-price-order');
@@ -78,10 +80,19 @@ function changeShipping(ship){
     document.getElementById('total-order').innerHTML = total_order.innerHTML;
     document.getElementById('total-order-final').innerHTML = total_order.innerHTML;
 }
-document.getElementById('sub-order-price').innerHTML = document.getElementById('total-price').innerHTML;
-document.getElementById('total-order').innerHTML = document.getElementById('total-price-order').innerHTML;
-document.getElementById('total-order-final').innerHTML = document.getElementById('total-price-order').innerHTML;
-
+function confirmOrder() {
+    document.getElementById('sub-order-price').innerHTML = document.getElementById('total-price').innerHTML;
+    document.getElementById('total-order').innerHTML = document.getElementById('total-price-order').innerHTML;
+    document.getElementById('total-order-final').innerHTML = document.getElementById('total-price-order').innerHTML;
+    if (document.getElementById('free').checked === true){
+        document.getElementById('shipping-type').innerHTML = "Free shipping";
+    }
+    if (document.getElementById('rate').checked === true){
+        document.getElementById('shipping-type').innerHTML = " Flat rate: $15";
+    }else {
+        document.getElementById('shipping-type').innerHTML = "Local pickup: $8";
+    }
+}
 function orderProduct() {
     if (document.getElementById('address-order').innerHTML !== ""){
         let arr_quantity = [];
